@@ -10,6 +10,14 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
+type SSHTunnelConfig struct {
+	SSHAddress        string
+	SSHUser           string
+	SSHPrivateKeyPath string
+	LocalEndpoint     string
+	RemoteEndpoint    string
+}
+
 func SetupSSHTunnel(config SSHTunnelConfig) (net.Listener, error) {
 	key, err := os.ReadFile(config.SSHPrivateKeyPath)
 	if err != nil {
