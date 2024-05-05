@@ -3,6 +3,7 @@
 example of how to use SSH proxy for Postgres connection
 
 ```golang
+func main(){
 	listener, err := tunnel.SetupSSHTunnel(tunnel.SSHTunnelConfig{
 		SSHAddress:        "sshServer:22",
 		SSHUser:           "user",
@@ -24,4 +25,5 @@ example of how to use SSH proxy for Postgres connection
 		os.Exit(1)
 	}
 	defer pgConn.Close(ctx)
+}
 ```
